@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jadwal Kuliah Mingguan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <h1>Jadwal Perkuliahan Saya<br /></h1>
+      <p class="note">Ketik nama hari untuk melihat mata kuliah yang ada pada hari itu.</p>
+    </header>
+
+    <main>
+      <section class="finder" aria-labelledby="finderTitle">
+        <h2 id="finderTitle">Cari berdasarkan hari</h2>
+        <div class="finder-row">
+          <label for="inputHari" class="sr-only">Nama hari</label>
+          <input type="text" id="inputHari" placeholder="Misalnya: Rabu" autocomplete="off" />
+          <button id="btnCari">Cari jadwal</button>
+        </div>
+
+        <div id="outputContainer" class="result hidden" role="status">
+          <p id="outputResult" class="result-text"></p>
+        </div>
+      </section>
+
+      <section aria-labelledby="listTitle">
+        <h2 id="listTitle" class="list-title">Semua hari</h2>
+        <div id="scheduleGrid" class="timetable">
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Jadwal perkuliahan semester ini, 2026</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

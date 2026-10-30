@@ -1,0 +1,228 @@
+:root {
+  --paper: #eef0f3;
+  --sheet: #ffffff;
+  --ink: #1c2433;
+  --muted: #5d6677;
+  --line: #d3d8e0;
+  --lab: #1f4fd8;
+  --kelas: #c98a00;
+  --libur: #8a93a3;
+  --focus: #1f4fd8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+  padding: 40px 20px 24px;
+}
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.masthead {
+  margin-bottom: 32px;
+}
+
+.masthead h1 {
+  font-size: clamp(2.2rem, 7vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.note {
+  margin-top: 14px;
+  max-width: 44ch;
+  color: var(--muted);
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* ---------- Pencarian ---------- */
+.finder {
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  padding: 20px;
+  margin-bottom: 36px;
+}
+
+.finder-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  padding: 10px 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+button {
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 18px;
+  background: var(--ink);
+  color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--lab);
+  border-color: var(--lab);
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.result {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1.5px dashed var(--line);
+}
+
+.result.hidden {
+  display: none;
+}
+
+.result-text {
+  font-weight: 500;
+  white-space: pre-line;
+}
+
+.result-text.is-error {
+  color: #b3261e;
+}
+
+/* ---------- Timetable ---------- */
+.list-title {
+  margin-bottom: 10px;
+}
+
+.timetable {
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 4px 20px;
+  align-items: start;
+  padding: 16px 20px 16px 16px;
+  border-left: 6px solid var(--libur);
+  border-bottom: 1px solid var(--line);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.row.ada-kuliah { border-left-color: var(--lab); }
+
+.row.is-today {
+  background: #fff7e0;
+}
+
+.row.is-found {
+  background: #e6edff;
+  outline: 2px solid var(--lab);
+  outline-offset: -2px;
+}
+
+.day {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.today-tag {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--kelas);
+}
+
+.sessions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.session {
+  display: grid;
+  grid-template-columns: 1fr 170px;
+  gap: 4px 20px;
+  align-items: baseline;
+}
+
+.session + .session {
+  border-top: 1px dashed var(--line);
+  padding-top: 12px;
+}
+
+.matkul {
+  font-weight: 700;
+}
+
+.jenis {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.when {
+  font-size: 0.92rem;
+  color: var(--muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.when span {
+  display: block;
+}
+
+.footer {
+  margin-top: 28px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  body { padding: 28px 14px 20px; }
+  .finder-row { flex-direction: column; }
+  .row { grid-template-columns: 1fr; gap: 6px; }
+  .session { grid-template-columns: 1fr; gap: 2px; }
+  .when { text-align: left; margin-top: 4px; }
+}
